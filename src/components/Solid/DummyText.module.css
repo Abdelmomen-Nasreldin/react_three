@@ -1,6 +1,10 @@
 .DummyText{
     background-color: #323132 !important;
-    color: #fff;
+    color: #fff ;
     max-width: 600px;
     text-align: center;
+    margin: 70px auto !important;
+}
+.DummyText h2{
+    color: #fff ;
 }

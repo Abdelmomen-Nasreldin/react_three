@@ -1,27 +1,28 @@
 import React from "react";
+import classes from "./Orders.module.scss"
 
 const Orders = (props) => {
   return (
-    <div className="d-flex justify-content-between align-items-center">
-      <div className="">
+    <div className={`${classes.orders} d-flex justify-content-between align-items-center`}>
+      <div className={`${classes.orders__left}`}>
         <p>{props.name}</p>
         <div className="">
-          <span>{props.price}</span>
-          <span>x {props.amount}</span>
+          <span>{props.price}$</span>
+          <span>x{props.amount}</span>
         </div>
       </div>
-      <div className="">
+      <div className={`${classes.orders__right}`}>
         <button
           type="button"
           class="btn btn-outline-primary"
-          onClick={props.onClick}
+          onClick={props.onClickDecrement}
         >
           -
         </button>
         <button
           type="button"
           class="btn btn-outline-primary"
-          onClick={props.onClick}
+          onClick={props.onClickIncrement}
         >
           +
         </button>

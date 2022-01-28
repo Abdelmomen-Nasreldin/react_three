@@ -10,7 +10,7 @@ const Header = () => {
     <div className={`${classes.main__header}`}>
       <div className={`${classes.header} container`}>
         <h1>React Meals</h1>
-        <div onClick={() => setVisible(true)}>
+        <div onClick={() => setVisible(true)} >
           <CartHeader />
         </div>
       </div>

@@ -18,6 +18,7 @@ const MealsBox = () => {
   const setNoOfOrders = useContext(setNoOfOrdersContext);
 
   const orderHandler = (food) => {
+    // need some logic edit
     setOrderData((pre) => [...pre, food]);
     setNoOfOrders(pre=>pre+1)
   };

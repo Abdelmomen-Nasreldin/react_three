@@ -1,0 +1,30 @@
+.orders {
+  .orders__left {
+    p {
+      margin-bottom: 5px !important;
+      font-weight: bold;
+    }
+    div {
+      span:first-of-type {
+          font-weight: bolder;
+      }
+      span:nth-of-type(2) {
+        margin: 0 15px !important;
+        border: 1px solid #1890ff;
+        padding: 2px 6px;
+        border-radius: 5px;
+      }
+    }
+  }
+  .orders__right {
+    button {
+      width: 30px;
+      padding: 0px 6px;
+    }
+    button:first-of-type {
+      margin: 0 5px;
+    }
+    button:nth-of-type(2) {
+    }
+  }
+}

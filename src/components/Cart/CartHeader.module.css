@@ -1,0 +1,18 @@
+.cart{
+    width: 200px;
+   background-color: rgb(223, 31, 31);
+   padding: 15px;
+   border-radius: 25px;
+   color: #fff
+}
+.cart__icon{
+    /* font-weight: bold; */
+}
+.cart__text{}
+.cart__number{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color:rgb(148, 116, 116);
+    text-align: center;
+}

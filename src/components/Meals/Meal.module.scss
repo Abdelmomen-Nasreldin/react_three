@@ -1,0 +1,51 @@
+.meal {
+    display: flex;
+    justify-content: space-between;
+ width: 100%;
+ border:none;
+  .meal__left {
+    h6 {
+      font-weight: bolder;
+      margin-bottom: 0;
+      font-size: 18px;
+    }
+    p {
+      font-size: 14px;
+      font-style: italic;
+      margin-bottom: 0;
+      color: #777;
+    }
+    span {
+      font-weight: bold;
+      font-size: 17px;
+      color: #70230a;
+    }
+  }
+  .meal__right {
+      .meal__right__amount{
+          span{
+            font-weight: bolder;
+            margin-bottom: 0;
+            font-size: 18px;
+          }
+          input{
+            height: 28px;
+            width: 42px;
+            border: 1px solid #d12424;
+            border-radius: 6px;
+          }
+          input:focus-visible{
+           outline: none
+          }
+      }
+      .meal__right__btn{
+        background-color: #70230a;
+        border: none;
+        border-radius: 20px;
+        width: 70px;
+        padding: 2px 5px;
+        color: #fff;
+        text-align: center;
+      }
+  }
+}

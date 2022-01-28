@@ -1,0 +1,8 @@
+.mealsBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    min-width: 300px !important;
+    max-width: 600px !important;
+}

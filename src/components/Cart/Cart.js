@@ -9,7 +9,7 @@ const Cart = ({ visible, setVisible }) => {
   const incrementOrderAmountHandler = (order) => {
     // setOrderData((pre)=>[...pre,{...order, amount: order.amount+1}])
     
-   order.amount+=1
+  //  order.amount+=1
   };
   useEffect(()=>{
     // incrementOrderAmountHandler()

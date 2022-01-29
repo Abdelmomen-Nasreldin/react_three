@@ -19,8 +19,32 @@ const MealsBox = () => {
 
   const orderHandler = (food) => {
     // need some logic edit
-    setOrderData((pre) => [...pre, food]);
-    setNoOfOrders(pre=>pre+1)
+    setOrderData((prevState) => {
+      const index = prevState.findIndex((order) =>{
+        return order.id === food.id;
+      })
+      if(index>-1){
+        // const isExist = prevState[index] //.find((order) =>{return order.id === food.id})
+        // const temp = {...isExist, amount: food.amount+isExist.amount}
+      
+        // const prev = [...prevState]
+        // prev[index] = temp;
+
+        const prev = prevState.map((order) => {
+          if (order.id === food.id) {
+            return{...order, amount: food.amount + order.amount}
+          }else{
+            return order
+          }
+        })
+        
+        return prev
+      }else{
+        setNoOfOrders(pre=>pre+1)
+        return [...prevState, food]
+      }
+    });
+    
   };
   return (
     <CartUI className={`${classes.mealsBox}`}>
@@ -32,7 +56,10 @@ const MealsBox = () => {
                 name={food.name}
                 des={food.des}
                 price={food.price}
-                amount={(e) => (food.amount = e.target.value)}
+                amount={(e) => {
+                  food.amount =  +e.target.value
+                  console.log(food)
+                }}
                 addOrder={() => orderHandler(food)}
               />
             </li>

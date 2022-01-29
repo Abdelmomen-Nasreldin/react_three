@@ -33,7 +33,7 @@ const foodDataDummy = [
 const FoodProvider = (props) => {
   const [foodData, setFoodData] = useState(foodDataDummy);
   const [orderData, setOrderData] = useState([])
-  const [noOfOrders, setNoOfOrders] = useState(0)
+  const [noOfOrders, setNoOfOrders] = useState(0) //COULD be easily the length of the orderData array mr. stupid 
   return (
     <foodDataContext.Provider value={foodData}>
       <setFoodDataContext.Provider value={setFoodData}>

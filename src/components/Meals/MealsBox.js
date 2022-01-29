@@ -4,17 +4,17 @@ import classes from "./MealBox.module.css";
 import Meal from "./Meal";
 import {
   foodDataContext,
-  noOfOrdersContext,
-  orderDataContext,
+  // noOfOrdersContext,
+  // orderDataContext,
   setNoOfOrdersContext,
   setOrderDataContext,
 } from "./../../store/food-data";
 
 const MealsBox = () => {
   const foodData = useContext(foodDataContext);
-  const orderData = useContext(orderDataContext);
+  // const orderData = useContext(orderDataContext);
   const setOrderData = useContext(setOrderDataContext);
-  const noOfOrders = useContext(noOfOrdersContext);
+  // const noOfOrders = useContext(noOfOrdersContext);
   const setNoOfOrders = useContext(setNoOfOrdersContext);
 
   const orderHandler = (food) => {

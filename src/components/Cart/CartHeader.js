@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { noOfOrdersContext, orderDataContext } from "../../store/food-data";
+import { noOfOrdersContext } from "../../store/food-data";
 import classes from "./CartHeader.module.css";
 const CartHeader = () => {
   const noOfOrders = useContext(noOfOrdersContext)

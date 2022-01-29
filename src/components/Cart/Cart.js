@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import { Modal } from "antd";
-import { orderDataContext, setOrderDataContext } from "../../store/food-data";
+import { orderDataContext } from "../../store/food-data";
 import Orders from "./Orders";
 const Cart = ({ visible, setVisible }) => {
   const orderData = useContext(orderDataContext);
-  const setOrderData = useContext(setOrderDataContext);
+  // const setOrderData = useContext(setOrderDataContext);
 
   const incrementOrderAmountHandler = (order) => {
     // setOrderData((pre)=>[...pre,{...order, amount: order.amount+1}])

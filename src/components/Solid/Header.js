@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "./Header.module.css";
 import CartHeader from "./../Cart/CartHeader";
 import Cart from "../Cart/Cart";
-import { Button } from "react-bootstrap";
+
 
 const Header = () => {
   const [visible, setVisible] = useState(false);

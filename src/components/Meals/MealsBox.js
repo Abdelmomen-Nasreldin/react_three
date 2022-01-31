@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useState } from "react";
 import CartUI from "./../UI/CartUI";
 import classes from "./MealBox.module.css";
 import Meal from "./Meal";
 import {
   foodDataContext,
-  // noOfOrdersContext,
-  // orderDataContext,
-  setNoOfOrdersContext,
+  // orderDataContext,  
   setOrderDataContext,
 } from "./../../store/food-data";
 
@@ -15,32 +13,32 @@ const MealsBox = () => {
   // const orderData = useContext(orderDataContext);
   const setOrderData = useContext(setOrderDataContext);
   // const noOfOrders = useContext(noOfOrdersContext);
-  const setNoOfOrders = useContext(setNoOfOrdersContext);
-
+ const [amountOfOders, setAmountOfOders] =useState(1) // erorr ///////////////////////////////erooooooooooooooooore/////////
+// const amountOfOders = useRef(1)
   const orderHandler = (food) => {
+    
     // need some logic edit
     setOrderData((prevState) => {
       const index = prevState.findIndex((order) =>{
         return order.id === food.id;
       })
       if(index>-1){
-        // const isExist = prevState[index] //.find((order) =>{return order.id === food.id})
-        // const temp = {...isExist, amount: food.amount+isExist.amount}
+        const isExist = prevState[index] //.find((order) =>{return order.id === food.id})
+        const temp = {...isExist, amount: amountOfOders + isExist.amount}
       
-        // const prev = [...prevState]
-        // prev[index] = temp;
+        const prev = [...prevState]
+        prev[index] = temp;
 
-        const prev = prevState.map((order) => {
-          if (order.id === food.id) {
-            return{...order, amount: food.amount + order.amount}
-          }else{
-            return order
-          }
-        })
+        // const prev = prevState.map((order) => {
+        //   if (order.id === food.id) {
+        //     return{...order, amount: amountOfOders + order.amount}
+        //   }else{
+        //     return order
+        //   }
+        // })
         
         return prev
       }else{
-        setNoOfOrders(pre=>pre+1)
         return [...prevState, food]
       }
     });
@@ -56,9 +54,9 @@ const MealsBox = () => {
                 name={food.name}
                 des={food.des}
                 price={food.price}
-                amount={(e) => {
-                  food.amount =  +e.target.value
-                  console.log(food)
+                amount={(e) => {                          
+                  setAmountOfOders(+e.target.value)
+                  console.log(amountOfOders, e.target.value)
                 }}
                 addOrder={() => orderHandler(food)}
               />

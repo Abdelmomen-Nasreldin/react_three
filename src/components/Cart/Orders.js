@@ -14,14 +14,14 @@ const Orders = (props) => {
       <div className={`${classes.orders__right}`}>
         <button
           type="button"
-          class="btn btn-outline-primary"
+          className="btn btn-outline-primary"
           onClick={props.onClickDecrement}
         >
           -
         </button>
         <button
           type="button"
-          class="btn btn-outline-primary"
+          className="btn btn-outline-primary"
           onClick={props.onClickIncrement}
         >
           +

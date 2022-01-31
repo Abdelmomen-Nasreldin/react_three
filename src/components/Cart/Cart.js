@@ -1,22 +1,40 @@
 import React, { useContext, useEffect } from "react";
 import { Modal } from "antd";
-import { orderDataContext } from "../../store/food-data";
+import { orderDataContext, setOrderDataContext } from "../../store/food-data";
 import Orders from "./Orders";
 const Cart = ({ visible, setVisible }) => {
   const orderData = useContext(orderDataContext);
-  // const setOrderData = useContext(setOrderDataContext);
+  const setOrderData = useContext(setOrderDataContext);
 
   const incrementOrderAmountHandler = (order) => {
-    // setOrderData((pre)=>[...pre,{...order, amount: order.amount+1}])
-    
-  //  order.amount+=1
+    setOrderData((pre) => {
+      const prevState = pre.map((meal) => {
+        if (meal.id === order.id) {
+          return { ...meal, amount: +meal.amount + 1, price: order.price*order.amount };
+        } else {
+          return meal;
+        }
+      });
+      return prevState;
+    }); 
   };
-  useEffect(()=>{
+  const decrementOrderAmountHandler = (order) => {
+    setOrderData((pre) => {
+      const prevState = pre.map((meal) => {
+        if (meal.id === order.id) {
+          return { ...meal, amount: +meal.amount - 1, price: meal.price*meal.amount };
+        } else {
+          return meal;
+        }
+      });
+      return prevState;
+    }); 
+  };
+  useEffect(() => {
     // incrementOrderAmountHandler()
-  },[])
+  }, []);
   return (
     <>
-      {/* incrementOrderAmountHandler */}
       <Modal
         title="orders"
         centered
@@ -33,6 +51,7 @@ const Cart = ({ visible, setVisible }) => {
                   price={order.price}
                   amount={order.amount}
                   onClickIncrement={() => incrementOrderAmountHandler(order)}
+                  onClickDecrement={() => decrementOrderAmountHandler(order)}
                 />
               </li>
             );

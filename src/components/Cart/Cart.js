@@ -1,34 +1,38 @@
 import React, { useContext, useEffect } from "react";
 import { Modal } from "antd";
-import { orderDataContext, setOrderDataContext } from "../../store/food-data";
+import { orderDataContext,setOrderDataContext, foodDataContext } from "../../store/food-data";
 import Orders from "./Orders";
 const Cart = ({ visible, setVisible }) => {
+  const foodData = useContext(foodDataContext)
   const orderData = useContext(orderDataContext);
   const setOrderData = useContext(setOrderDataContext);
 
   const incrementOrderAmountHandler = (order) => {
-    setOrderData((pre) => {
-      const prevState = pre.map((meal) => {
-        if (meal.id === order.id) {
-          return { ...meal, amount: +meal.amount + 1, price: order.price*order.amount };
-        } else {
-          return meal;
-        }
-      });
-      return prevState;
-    }); 
+    // const order = {...ddd}
+    console.log(orderData)
+    const orderIndex = orderData.findIndex((item) => item.id === order.id)
+    console.log(orderIndex)
+    const foodOrder = foodData.find((item) => item.name === order.name)
+    const priceForOneOrder = foodOrder.price
+    
+    const updateOrder = {...order, amount: order.amount+1, price: order.price+priceForOneOrder}
+    console.log(updateOrder)
+    let newOrdeData = [...orderData]
+    newOrdeData[orderIndex] = updateOrder
+    setOrderData(newOrdeData)
   };
+
+
+
+
   const decrementOrderAmountHandler = (order) => {
-    setOrderData((pre) => {
-      const prevState = pre.map((meal) => {
-        if (meal.id === order.id) {
-          return { ...meal, amount: +meal.amount - 1, price: meal.price*meal.amount };
-        } else {
-          return meal;
-        }
-      });
-      return prevState;
-    }); 
+    const orderIndex = orderData.findIndex((item) => item.id === order.id)
+    const foodOrder = foodData.find((item) => item.name === order.name)
+    const priceForOneOrder = foodOrder.price
+    const updateOrder = {...order, amount: order.amount-1, price: order.price-priceForOneOrder}
+    let newOrdeData = [...orderData]
+    newOrdeData[orderIndex] = updateOrder
+    setOrderData(newOrdeData)
   };
   useEffect(() => {
     // incrementOrderAmountHandler()
@@ -43,7 +47,7 @@ const Cart = ({ visible, setVisible }) => {
         onCancel={() => setVisible(false)}
       >
         <ul className={`list-group list-group-flush`}>
-          {orderData.map((order) => {
+          {orderData.length>0 && orderData.map((order) => {
             return (
               <li key={order.id} className={`list-group-item`}>
                 <Orders
@@ -56,6 +60,7 @@ const Cart = ({ visible, setVisible }) => {
               </li>
             );
           })}
+          {orderData.length===0 && "dfdf"}
         </ul>
       </Modal>
     </>

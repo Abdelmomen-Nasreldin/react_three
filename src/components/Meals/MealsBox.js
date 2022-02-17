@@ -47,7 +47,7 @@ const MealsBox = () => {
             <li key={food.id} className={`list-group-item`}>
               <Meal
                 name={food.name}
-                des={food.description}
+                description={food.description}
                 price={food.price}
                 addOrder={orderHandler}
               />

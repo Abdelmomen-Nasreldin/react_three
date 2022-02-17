@@ -23,6 +23,7 @@ const Orders = (props) => {
           type="button"
           className="btn btn-outline-primary"
           onClick={props.onClickIncrement}
+          
         >
           +
         </button>

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 
 export const foodDataContext = React.createContext();
-// export const setFoodDataContext = React.createContext();
 export const orderDataContext = React.createContext();
 export const setOrderDataContext = React.createContext();
-// export const noOfOrdersContext = React.createContext();
-// export const setNoOfOrdersContext = React.createContext();
+
 
 const foodDataDummy = [
   {

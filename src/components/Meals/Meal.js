@@ -36,6 +36,8 @@ const Meal = (props) => {
               className="ms-2"
               defaultValue={`1`}
               ref={inputValueRef}
+              min='1'
+              max='10'
             />
           </div>
           <button type="submit" className={`${classes.meal__right__btn} mt-2`}>

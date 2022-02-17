@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Modal } from "antd";
 import { orderDataContext,setOrderDataContext, foodDataContext } from "../../store/food-data";
 import Orders from "./Orders";
@@ -8,7 +8,6 @@ const Cart = ({ visible, setVisible }) => {
   const setOrderData = useContext(setOrderDataContext);
 
   const incrementOrderAmountHandler = (order) => {
-    // const order = {...ddd}
     console.log(orderData)
     const orderIndex = orderData.findIndex((item) => item.id === order.id)
     console.log(orderIndex)
@@ -34,9 +33,7 @@ const Cart = ({ visible, setVisible }) => {
     newOrdeData[orderIndex] = updateOrder
     setOrderData(newOrdeData)
   };
-  useEffect(() => {
-    // incrementOrderAmountHandler()
-  }, []);
+ 
   return (
     <>
       <Modal
@@ -60,7 +57,7 @@ const Cart = ({ visible, setVisible }) => {
               </li>
             );
           })}
-          {orderData.length===0 && "dfdf"}
+          {orderData.length===0 && "NO Orders"}
         </ul>
       </Modal>
     </>
